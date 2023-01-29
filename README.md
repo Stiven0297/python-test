@@ -41,7 +41,7 @@
 <p>
 On the other hand, the work unit pattern allows centralizing the connections to the data, serving as a middle layer to achieve a reversal of processed data if a committee is not invoked or if there is some type of inconsistency.</p>
 
-- Diagram: https://drive.google.com/file/d/1ssaP-VJXCvcHOpCNHauKLA0oq-MqEBSv/view?usp=share_link
+- Diagram: https://drive.google.com/file/d/1NBxJQAwyqptlRvXP5QYCik_2yTZej4FE/view?usp=share_link
 
 ### LIKE MODEL PROPOSAL
 <p>To support the hypothetical model of likes per property, a table must be generated for the clients and one to have the many-to-many relationship between the properties and the clients.</p>
