@@ -1,4 +1,5 @@
 import abc
+import os
 from typing import TypeVar, Generic, Optional, List, Dict, Any
 
 import mysql.connector
@@ -36,11 +37,11 @@ class AbstractPropertyRepository(AbstractReadRepository):
 class PropertyRepository(AbstractPropertyRepository):
     def __init__(self):
         self.connector = mysql.connector.connect(
-            host="3.130.126.210",
-            port=3309,
-            user="pruebas",
-            password="VGbt3Day5R",
-            database="habi_db"
+            host=os.getenv('DB_HOST'),
+            port=os.getenv('DB_PORT'),
+            user=os.getenv('DB_USER'),
+            password=os.getenv('DB_PASSWORD'),
+            database=os.getenv('DB_SCHEMA')
         )
 
     def filter(
