@@ -51,15 +51,15 @@ class PropertyRepository(AbstractPropertyRepository):
     ) -> List[Optional[Property]]:
         cursor = self.connector.cursor()
         query = f"""SELECT p.id, MAX(sh.update_date) AS date, p.address, 
-        p.city, s.id AS status_id, s.name AS status_name, 
-        s.label AS status_label, p.price, p.description 
-        FROM property p 
-        INNER JOIN status_history sh ON p.id = sh.property_id
-        INNER JOIN status s ON s.id = sh.status_id
-        WHERE p.`year` LIKE '%{year}%' AND p.city LIKE '%{city}%'
-        GROUP BY p.id 
-        ORDER BY p.id, sh.update_date 
-        DESC """
+                p.city, s.id AS status_id, s.name AS status_name, 
+                s.label AS status_label, p.price, p.description 
+                FROM property p 
+                INNER JOIN status_history sh ON p.id = sh.property_id
+                INNER JOIN status s ON s.id = sh.status_id
+                WHERE p.`year` LIKE '%{year}%' AND p.city LIKE '%{city}%'
+                GROUP BY p.id 
+                ORDER BY p.id, sh.update_date 
+                DESC """
         cursor.execute(query)
         raw_result = cursor.fetchall()
         result = []
@@ -78,6 +78,9 @@ class PropertyRepository(AbstractPropertyRepository):
                     or property[5] == 'vendido'
                 )
             ]
+
+        cursor.close()
+        self.connector.close()
 
         return list(map(lambda property: Property(
             address=property[2],
