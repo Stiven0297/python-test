@@ -41,4 +41,4 @@
 <p>
 On the other hand, the work unit pattern allows centralizing the connections to the data, serving as a middle layer to achieve a reversal of processed data if a committee is not invoked or if there is some type of inconsistency.</p>
 
-![Arquitectura](https://drive.google.com/file/d/1ssaP-VJXCvcHOpCNHauKLA0oq-MqEBSv/view?usp=share_link)
+- Diagram: https://drive.google.com/file/d/1ssaP-VJXCvcHOpCNHauKLA0oq-MqEBSv/view?usp=share_link
